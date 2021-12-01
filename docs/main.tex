@@ -16,6 +16,8 @@
 \usepackage{caption}
 \usepackage{subcaption}
 \usepackage{booktabs}
+\usepackage{colortbl}
+\usepackage{array}
 \usepackage{listings}
 \usepackage{hyperref}
 \hypersetup{
@@ -40,6 +42,9 @@
 	tabsize=4
 }
 \lstset{style=cmdStyle}
+
+\colorlet{tabrowcolorA}{gray!10}
+\newcommand{\tabrowA}{\rowcolor{tabrowcolorA}}
 
 %\renewcommand{\_}{\textscale{0.5}{\textunderscore}}
 
@@ -131,15 +136,15 @@ The purpose of this document is to give useful information about the extruder in
 	\toprule
 	Parts & Notes \\
 	\midrule
-	\href{https://e3d-online.com/products/titan-extruder}{Titan extruder} & 2.85mm filament diameter, direct drive, with `\href{https://e3d-online.com/products/motors}{compact but powerful motor}' (\href{https://e3d-online.zendesk.com/hc/en-us/article_attachments/360016616377/Compact_But_Powerful_Motor.pdf}{datasheet}). \\
+	\tabrowA \href{https://e3d-online.com/products/titan-extruder}{Titan extruder} & 2.85mm filament diameter, direct drive, with `\href{https://e3d-online.com/products/motors}{compact but powerful motor}' (\href{https://e3d-online.zendesk.com/hc/en-us/article_attachments/360016616377/Compact_But_Powerful_Motor.pdf}{datasheet}). \\
 	\href{https://e3d-online.com/products/volcano-hotend}{Volcano HotEnd} & 2.85mm filament diameter, direct drive, 12V. with 0.8mm brass nozzle.  \\
-	\href{https://store.arduino.cc/products/arduino-mega-2560-rev3}{Arduino Mega 2560 Rev3} & \href{https://docs.arduino.cc/hardware/mega-2560}{Docs/Resources}, \href{https://www.arduino.cc/reference/en/}{arduino C++ reference} \\
+	\tabrowA \href{https://store.arduino.cc/products/arduino-mega-2560-rev3}{Arduino Mega 2560 Rev3} & \href{https://docs.arduino.cc/hardware/mega-2560}{Docs/Resources}, \href{https://www.arduino.cc/reference/en/}{arduino C++ reference} \\
 	\href{https://www.electrokit.com/produkt/ramps-1-4-shield}{Ramps 1.4} & \href{https://reprap.org/wiki/RAMPS_1.4}{Docs}. Supports control of five stepper motors, fans, nozzle heating and bed heating. However, the extruder are only using one motor, nozzle heating and a fan. \\
-	\href{https://www.electrokit.com/produkt/stegmotordrivare-drv8825/}{DRV8825, Stepper motor driver} & \href{https://www.electrokit.com/uploads/productfile/41016/drv8825.pdf}{Datasheet}. \\
+	\tabrowA \href{https://www.electrokit.com/produkt/stegmotordrivare-drv8825/}{DRV8825, Stepper motor driver} & \href{https://www.electrokit.com/uploads/productfile/41016/drv8825.pdf}{Datasheet}. \\
 	\href{https://www.sparkfun.com/products/449}{RS-232 til TTL nivåomformer} & \href{https://github.com/sparkfun/RS232_Shifter_SMD}{Docs}. \\
-	\href{http://www.sunrichtech.com.hk/ProductShow.aspx?Mid=1&pid=419}{PCIe RS232 computer card} &  \\
+	\tabrowA \href{http://www.sunrichtech.com.hk/ProductShow.aspx?Mid=1&pid=419}{PCIe RS232 computer card} &  \\
 	RS232 cable &  \\
-	\href{https://www.e3printable.no/nettbutikk-norge/83-byggeplate/345-pei-byggeplate/?variantId=215}{PEI sheet} & To print on top of. Should improve adhesion of first layer. \\
+	\tabrowA \href{https://www.e3printable.no/nettbutikk-norge/83-byggeplate/345-pei-byggeplate/?variantId=215}{PEI sheet} & To print on top of. Should improve adhesion of first layer. \\
 	PLA filament & 2.85mm diameter. \\
 	\bottomrule
 	\end{tabular}
@@ -160,13 +165,13 @@ The purpose of this document is to give useful information about the extruder in
 	\toprule
 	Project name & Links & Notes \\
 	\midrule
-	\texttt{ROS2 foxy} & \href{https://docs.ros.org/en/foxy}{Docs.} \href{https://github.com/ros2}{github} \\[3pt]
-	\texttt{ROS2 Control (foxy)} & \href{https://control.ros.org/index}{Docs.} \href{https://github.com/ros-controls/ros2_control}{github} \\[3pt]
-	\texttt{(Franka ROS)} & \href{https://frankaemika.github.io/docs/franka_ros}{Docs.} \href{https://github.com/frankaemika}{github} \\[3pt]
+	\tabrowA \texttt{ROS2 foxy} & \href{https://docs.ros.org/en/foxy}{Docs.} \href{https://github.com/ros2}{github} & \\[3pt]
+	\texttt{ROS2 Control (foxy)} & \href{https://control.ros.org/index}{Docs.} \href{https://github.com/ros-controls/ros2_control}{github} & \\[3pt]
+	\tabrowA \texttt{(Franka ROS)} & \href{https://frankaemika.github.io/docs/franka_ros}{Docs.} \href{https://github.com/frankaemika}{github} & \\[3pt]
 	\texttt{extruderCtrl} & \href{https://github.com/mltmyr/extruderCtrl}{github} & Arduino code for control box. Maintained by author. \\[3pt]
-	\texttt{am\_extruder\_tool} & \href{https://github.com/mltmyr/am_extruder_tool}{github} & ROS2 control hardware resource, descriptions and launch script. Maintained by author. \\[3pt]
+	\tabrowA \texttt{am\_extruder\_tool} & \href{https://github.com/mltmyr/am_extruder_tool}{github} & ROS2 control hardware resource, descriptions and launch script. Maintained by author. \\[3pt]
 	\texttt{am\_extruder\_msg} & \href{https://github.com/mltmyr/am_extruder_msg}{github} & Custom message types. Maintained by author. \\[3pt]
-	\texttt{am\_extruder\_simple\_ui} & \href{https://github.com/mltmyr/am_extruder_simple_ui}{github} & RQT-gui plugin to set and read nozzle temperature and filament speed. Maintained by author. \\[3pt]
+	\tabrowA \texttt{am\_extruder\_simple\_ui} & \href{https://github.com/mltmyr/am_extruder_simple_ui}{github} & RQT-gui plugin to set and read nozzle temperature and filament speed. Maintained by author. \\[3pt]
 	\texttt{Teuniz/RS-232} & \href{https://www.teuniz.net/RS-232/}{Docs.} \href{https://gitlab.com/Teuniz/RS-232}{gitlab} & By Teunis van Beelen. \\[3pt]
 	\bottomrule
 	\end{tabular}
@@ -323,5 +328,65 @@ The speed at which the filament is moved by the stepper motor when sending a ste
 The low level control of the stepper motor, i.e. voltage and current control of individual windings/phases in the motor, is performed by the DRV8825 stepper motor driver mounted on top of the ramps board. The interface between the stepper motor driver and the arduino board consists of three IO-pins, they are: `enable', `step' and `direction'. The `step'-pin should be pulsed once, each time the motor should move one step in the direction indicated by the `direction'-pin.
 
 To ensure that the `step'-pin is pulsed regularly, and with the correct frequency, a hardware timer is used. A value is entered into the OCRxA register to control the period of the timer. When the timer expires, an interrupt routine is run that toggles the `step'-pin.
+
+\newpage
+\section{Software details}
+
+\subsection{Messages over serial}
+A simple and lightweight custom message format was created for the communication between the extruder control box and computer running ros.
+
+Each message start with an operation code of one byte and a variable length data field (payload) where the length and format of the payload is implicitly given by the operation code.
+
+There are no acknowledgements and no retransmissions of messages. Therefore, the serial communication is far from robust. But it is sufficient for the current use.
+
+In order for the messages to be as short as possible, nozzle temperature data and stepper motor stepping frequency data is sent over serial as float32 (4 bytes) and not as a string of characters. This makes the data sent over serial unreadable with serial consoles (e.g. PuTTY) that interpret every byte as an ASCII character.
+
+The messages that can be sent between the computer and the extruder control box are explained in Table~\ref{tab:messages_from_computer_to_extruder} and Table~\ref{tab:messages_from_extruder_to_computer}.
+
+\begin{table}[h]
+	\centering
+	{
+	\captionsetup{width=\linewidth}
+	\caption{Messages from computer to extruder control box.}
+	\label{tab:messages_from_computer_to_extruder}
+	}
+	\vspace{-0.6em}
+	\setlength\tabcolsep{6pt} %default value: 6pt
+	\begin{tabular}{>{\centering}p{0.065\linewidth}>{\centering}p{0.08\linewidth}
+	p{0.865\linewidth}}
+	\toprule
+	Opcode & Payload & Purpose \\
+	\midrule
+	\tabrowA 'H' & float32 & Set nozzle temperature reference in $^\circ\text{C}$ for PID-controller. 5 bytes per message. \\[3pt]
+	'X' & float32 & Set stepper motor stepping frequency ($\text{Hz}$). 5 bytes per message. \\[3pt]
+	\tabrowA 'B' &  & Blink the debug LED on the arduino/ramps board once. For debugging. 1 byte per message. \\[3pt]
+	'Y' &  & Purpose was to start periodic messaging of nozzle temperature and filament speed. This functionality might be disabled in the .ino file. 1 byte per message. \\[3pt]
+	\tabrowA 'N' &  & Same as above, but used to turn of periodic messaging. 1 byte per message. \\[3pt]
+	'T' &  & Request the controller box to send nozzle temperature in $^\circ\text{C}$ once. Not necessary if nozzle temperature is periodically sent. 1 byte per message. \\[3pt]
+	\tabrowA 'E' &  & Request the controller box to send stepper motor stepping frequency ($\text{Hz}$) once. Not necessary if filament feed rate is periodically sent. 1 byte per message. \\[3pt]
+	\bottomrule
+	\end{tabular}
+\end{table}
+
+\begin{table}[h]
+	\centering
+	{
+	\captionsetup{width=\linewidth}
+	\caption{Messages from extruder control box to computer.}
+	\label{tab:messages_from_extruder_to_computer}
+	}
+	\vspace{-0.6em}
+	\setlength\tabcolsep{6pt} %default value: 6pt
+	\begin{tabular}{>{\centering}p{0.065\linewidth}>{\centering}p{0.08\linewidth}
+	p{0.865\linewidth}}
+	\toprule
+	Opcode & payload & Purpose \\
+	\midrule
+	\tabrowA 'T' & float32 & Message containing nozzle temperature in $^\circ\text{C}$. 5 bytes per message. \\[3pt]
+	'E' & float32 & Message containing stepper motor stepping frequency ($\text{Hz}$). 5 bytes per message. \\[3pt]
+	\bottomrule
+	\end{tabular}
+\end{table}
+
 
 \end{document}
